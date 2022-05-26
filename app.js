@@ -7,15 +7,15 @@
 
 var taskInput = document.getElementById("new-task");
 var addButton = document.getElementsByTagName("button")[0];
-var incompleteTaskHolder = document.getElementById("incompleteTasks");
+var incompleteTaskHolder = document.getElementById("incompleted-tasks");
 var completedTasksHolder = document.getElementById("completed-tasks");
 
 var createNewTaskElement=function(taskString){
     var listItem = document.createElement("li");
     var checkBox = document.createElement("input");
     var label = document.createElement("label");
-    var editInput=document.createElement("input");
-    var editButton=document.createElement("button");
+    var editInput = document.createElement("input");
+    var editButton = document.createElement("button");
     var deleteButton = document.createElement("button");
     var deleteButtonImg = document.createElement("img");
     label.innerText = taskString;
@@ -25,7 +25,7 @@ var createNewTaskElement=function(taskString){
     editInput.className = "task";
     editButton.innerText = "Edit";
     editButton.className = "edit";
-    deleteButton.className= "delete";
+    deleteButton.className = "delete";
     deleteButtonImg.src = "./remove.svg";
     deleteButton.appendChild(deleteButtonImg);
     listItem.appendChild(checkBox);
@@ -54,7 +54,7 @@ var editTask = function() {
     var editInput = listItem.querySelector("input[type=text]");
     var label = listItem.querySelector("label");
     var editBtn = listItem.querySelector(".edit");
-    var containsClass = listItem.classList.contains("editMode");
+    var containsClass = listItem.classList.contains("edit-mode");
     //If class of the parent is .editmode
     if (containsClass) {
         label.innerText = editInput.value;
@@ -63,7 +63,7 @@ var editTask = function() {
         editInput.value = label.innerText;
         editBtn.innerText = "Save";
     }
-    listItem.classList.toggle("editMode");
+    listItem.classList.toggle("edit-mode");
 };
 
 var deleteTask=function(){
